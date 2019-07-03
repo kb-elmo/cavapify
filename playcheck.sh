@@ -1,15 +1,14 @@
 #!/bin/bash
 
-current_track_before=""
+img_url=""
 
 while :
 do
-   current_track=$(playerctl metadata xesam:title)
-   if [[ "$current_track" != "$current_track_before" ]]
+   new_img_url=$(playerctl metadata mpris:artUrl)
+   if [[ "$new_img_url" != "$img_url" ]]
    then
-      img_url=$(playerctl metadata mpris:artUrl)
       img=$(mktemp)
-      wget $img_url -O $img -q
+      wget $new_img_url -O $img -q
       numcol=6
       fuzz=30
 
@@ -30,6 +29,6 @@ do
       sed -i "s/foreground.*/foreground = \'$hex\'/" $HOME/.config/cava/config
       pkill -USR2 cava
    fi
-   current_track_before=$current_track
+   img_url=$new_img_url
    sleep 1
 done
