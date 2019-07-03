@@ -4,7 +4,7 @@ img_url=""
 
 while :
 do
-   new_img_url=$(playerctl metadata mpris:artUrl)
+   new_img_url=$(playerctl metadata mpris:artUrl 2>/dev/null)
    if [[ "$new_img_url" != "$img_url" ]]
    then
       img=$(mktemp)
