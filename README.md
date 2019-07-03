@@ -1,6 +1,6 @@
 # cava colorchanger
 
-Script that will automatically change the color of the cava visualizer bars according to the color of the current album art in spotify.
+Script that will automatically change the color of the cava visualizer bars according to the color of the current album art of any media player that implements the [MPRIS](http://specifications.freedesktop.org/mpris-spec/latest/) D-Bus Interface Specification.
 
 ## Running
 
