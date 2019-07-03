@@ -29,6 +29,7 @@ do
       done
       sed -i "s/foreground.*/foreground = \'$hex\'/" $HOME/.config/cava/config
       pkill -USR2 cava
+      rm "$img"
    fi
    current_track_before=$current_track
    sleep 1
