@@ -11,3 +11,10 @@ playcheck.sh & cava
 ## Demo
 
 ![](https://i.imgur.com/vHlsZhK.gif)
+
+## Requirements
+
+- [cava](https://github.com/karlstav/cava)
+- imagemagick
+- [playerctl](https://github.com/acrisci/playerctl)
+- wget
