@@ -8,7 +8,14 @@ do
    if [[ "$new_img_url" != "$img_url" ]]
    then
       img=$(mktemp)
-      wget $new_img_url -O $img -q
+      linktype=$(echo "$new_img_url" | awk -F "://" '{print$1}')
+      if [[ "$linktype" == "file" ]]
+      then
+         direct_file=$(echo "$new_img_url" | sed 's/file\:\/\///')
+         cp "$direct_file" $img
+      else
+         wget "$new_img_url" -O $img -q
+      fi
       numcol=6
       fuzz=30
 
