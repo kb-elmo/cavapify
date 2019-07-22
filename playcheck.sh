@@ -35,7 +35,10 @@ do
       done
       sed -i "s/foreground.*/foreground = \'$hex\'/" $HOME/.config/cava/config
       pkill -USR2 cava
-      rm "$img"
+      if [[ "$linktype" != "file" ]]
+      then
+         rm "$img"
+      fi
    fi
    img_url=$new_img_url
    sleep 1
