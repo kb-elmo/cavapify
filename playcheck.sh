@@ -4,7 +4,7 @@ img_url=""
 
 while :
 do
-   new_img_url=$(playerctl metadata mpris:artUrl 2>/dev/null)
+   new_img_url=$(playerctl metadata mpris:artUrl 2>/dev/null | sed s/open.spotify.com/i.scdn.co/)
    if [[ "$new_img_url" != "$img_url" ]]
    then
       linktype=$(echo "$new_img_url" | awk -F "://" '{print$1}')
